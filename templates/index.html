@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhysicsLab AI — IBM watsonx.ai Granite</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+
+<!-- ── Navbar ──────────────────────────────────────────────────── -->
+<nav class="navbar navbar-expand-lg sticky-top" id="mainNav">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <div class="brand-icon"><i class="fa-solid fa-atom"></i></div>
+      <span class="brand-text">PhysicsLab <span class="brand-accent">AI</span></span>
+    </a>
+    <div class="d-flex align-items-center gap-3 ms-auto">
+      <span class="badge-ibm">IBM watsonx.ai · Granite</span>
+      <button class="btn btn-icon" id="themeToggle" title="Toggle theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarContent">
+        <i class="fa-solid fa-bars text-light"></i>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav ms-auto gap-2 mt-2 mt-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#experiments-panel"><i class="fa-solid fa-flask me-1"></i>Experiments</a></li>
+        <li class="nav-item"><a class="nav-link" href="#chat-section"><i class="fa-solid fa-comments me-1"></i>AI Chat</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://cloud.ibm.com" target="_blank"><i class="fa-solid fa-cloud me-1"></i>IBM Cloud</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero Banner ─────────────────────────────────────────────── -->
+<section class="hero-section">
+  <div class="hero-particles" id="particles"></div>
+  <div class="container text-center hero-content">
+    <div class="hero-badge mb-3">
+      <i class="fa-solid fa-microchip me-2"></i>IBM AICTE · AI Lab Manual Generator
+    </div>
+    <h1 class="hero-title">
+      Physics<span class="text-gradient">Lab AI</span>
+    </h1>
+    <p class="hero-subtitle">
+      Generate complete lab manuals, viva questions, theory notes,<br>
+      and experiment guides — powered by <strong>IBM Granite</strong>.
+    </p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap mt-4">
+      <button class="btn btn-primary-custom btn-lg" onclick="scrollToSection('experiments-panel')">
+        <i class="fa-solid fa-flask me-2"></i>Pick an Experiment
+      </button>
+      <button class="btn btn-outline-custom btn-lg" onclick="scrollToSection('chat-section')">
+        <i class="fa-solid fa-robot me-2"></i>Open AI Chat
+      </button>
+    </div>
+    <div class="hero-stats mt-5">
+      <div class="stat-item"><span class="stat-num">14+</span><span class="stat-label">Experiments</span></div>
+      <div class="stat-item"><span class="stat-num">9</span><span class="stat-label">Sections Each</span></div>
+      <div class="stat-item"><span class="stat-num">∞</span><span class="stat-label">Questions Answered</span></div>
+      <div class="stat-item"><span class="stat-num">IBM</span><span class="stat-label">Granite Powered</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Feature Cards ───────────────────────────────────────────── -->
+<section class="features-section py-5">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <span class="section-pill">Capabilities</span>
+      <h2 class="section-title mt-2">What PhysicsLab AI Can Do</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4 col-sm-6">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-book-open"></i></div>
+          <h5>Complete Lab Manuals</h5>
+          <p>Generate full experiment manuals with aim, theory, procedure, and more in seconds.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <h5>Viva Questions</h5>
+          <p>Get 10+ exam-ready viva questions with detailed model answers for any experiment.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-table-list"></i></div>
+          <h5>Observation Tables</h5>
+          <p>Pre-formatted observation and calculation tables ready for your lab record.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <h5>Common Mistakes</h5>
+          <p>Learn what usually goes wrong and how to fix it — before it happens to you.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-comments"></i></div>
+          <h5>Interactive Chat</h5>
+          <p>Ask anything about any physics experiment. Get instant, intelligent answers.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-file-export"></i></div>
+          <h5>Export & Download</h5>
+          <p>Download your lab manual as a formatted HTML file — ready to print or share.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Main App Layout ─────────────────────────────────────────── -->
+<section class="app-section py-5" id="experiments-panel">
+  <div class="container-fluid px-4">
+    <div class="row g-4">
+
+      <!-- LEFT: Experiment Panel -->
+      <div class="col-lg-3 col-md-4">
+        <div class="panel-card sticky-panel">
+          <div class="panel-header">
+            <i class="fa-solid fa-flask me-2"></i>Experiments
+            <input type="text" id="expSearch" class="form-control mt-3 search-input"
+                   placeholder="Search experiments..." oninput="filterExperiments()" />
+          </div>
+          <div class="category-filters" id="categoryFilters">
+            <button class="cat-btn active" onclick="filterByCategory('all', this)">All</button>
+            <button class="cat-btn" onclick="filterByCategory('Optics', this)">Optics</button>
+            <button class="cat-btn" onclick="filterByCategory('Mechanics', this)">Mechanics</button>
+            <button class="cat-btn" onclick="filterByCategory('Modern Physics', this)">Modern</button>
+            <button class="cat-btn" onclick="filterByCategory('Electricity', this)">Circuits</button>
+          </div>
+          <div class="exp-list" id="experimentList">
+            <div class="loading-shimmer"></div>
+            <div class="loading-shimmer"></div>
+            <div class="loading-shimmer"></div>
+            <div class="loading-shimmer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CENTER: Output / Chat -->
+      <div class="col-lg-6 col-md-8">
+        <!-- Section Controls -->
+        <div class="section-controls mb-3" id="sectionControls">
+          <div class="selected-exp-bar" id="selectedExpBar">
+            <i class="fa-solid fa-circle-info me-2"></i>
+            <span id="selectedExpName">Select an experiment from the panel →</span>
+          </div>
+          <div class="section-btns" id="sectionBtns">
+            <button class="sec-btn active" data-section="full"><i class="fa-solid fa-book me-1"></i>Full Manual</button>
+            <button class="sec-btn" data-section="aim"><i class="fa-solid fa-bullseye me-1"></i>Theory</button>
+            <button class="sec-btn" data-section="procedure"><i class="fa-solid fa-list-ol me-1"></i>Procedure</button>
+            <button class="sec-btn" data-section="observation"><i class="fa-solid fa-table me-1"></i>Tables</button>
+            <button class="sec-btn" data-section="viva"><i class="fa-solid fa-question-circle me-1"></i>Viva</button>
+            <button class="sec-btn" data-section="mistakes"><i class="fa-solid fa-bug me-1"></i>Mistakes</button>
+            <button class="sec-btn" data-section="simplified"><i class="fa-solid fa-child me-1"></i>Simplified</button>
+            <button class="sec-btn" data-section="exam"><i class="fa-solid fa-pen-to-square me-1"></i>Exam Mode</button>
+          </div>
+          <button class="btn btn-generate" id="generateBtn" onclick="generateContent()">
+            <i class="fa-solid fa-wand-magic-sparkles me-2"></i>Generate with AI
+          </button>
+        </div>
+
+        <!-- Output Area -->
+        <div class="output-card" id="outputCard">
+          <div class="output-toolbar" id="outputToolbar" style="display:none">
+            <button class="tool-btn" onclick="copyContent()" title="Copy"><i class="fa-solid fa-copy"></i> Copy</button>
+            <button class="tool-btn" onclick="exportContent()" title="Export"><i class="fa-solid fa-download"></i> Export</button>
+            <button class="tool-btn" onclick="clearOutput()" title="Clear"><i class="fa-solid fa-trash"></i> Clear</button>
+          </div>
+          <div id="outputContent" class="output-content">
+            <div class="welcome-placeholder">
+              <div class="welcome-icon"><i class="fa-solid fa-atom fa-spin-pulse"></i></div>
+              <h4>Welcome to PhysicsLab AI</h4>
+              <p>Select an experiment from the left panel and click <strong>Generate with AI</strong> to create your lab manual.</p>
+              <div class="welcome-tips">
+                <span class="tip-tag"><i class="fa-solid fa-lightbulb me-1"></i>Tip: Try "Simplified" mode for easy explanations</span>
+                <span class="tip-tag"><i class="fa-solid fa-lightbulb me-1"></i>Tip: Export as HTML and print as PDF</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Interface -->
+        <div class="chat-section mt-4" id="chat-section">
+          <div class="panel-header mb-3">
+            <i class="fa-solid fa-robot me-2"></i>Ask PhysicsLab AI Anything
+          </div>
+          <div class="chat-window" id="chatWindow">
+            <div class="chat-message ai-message">
+              <div class="msg-avatar"><i class="fa-solid fa-atom"></i></div>
+              <div class="msg-bubble">
+                <p>Hi! I'm <strong>PhysicsLab AI</strong>, powered by <strong>IBM Granite</strong>. 🔬</p>
+                <p>I can help you with physics experiments, lab manuals, viva preparation, and more. What would you like to know today?</p>
+                <div class="quick-prompts mt-2">
+                  <span class="q-prompt" onclick="sendQuickPrompt(this)">How does Newton's Rings work?</span>
+                  <span class="q-prompt" onclick="sendQuickPrompt(this)">Explain Brewster's angle</span>
+                  <span class="q-prompt" onclick="sendQuickPrompt(this)">What is Hall effect?</span>
+                  <span class="q-prompt" onclick="sendQuickPrompt(this)">How to reduce parallax error?</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="chat-input-bar">
+            <div class="chat-input-wrapper">
+              <textarea id="chatInput" class="chat-textarea" rows="1"
+                placeholder="Ask about any physics experiment..."
+                onkeydown="handleChatKey(event)" oninput="autoResize(this)"></textarea>
+              <button class="btn btn-send" id="sendBtn" onclick="sendMessage()">
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+            <div class="chat-hints mt-2">
+              <span class="hint-text"><i class="fa-solid fa-keyboard me-1"></i>Press Enter to send · Shift+Enter for new line</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Info Sidebar -->
+      <div class="col-lg-3">
+        <div class="sidebar-cards">
+
+          <!-- Quick Generate -->
+          <div class="panel-card mb-4">
+            <div class="panel-header"><i class="fa-solid fa-bolt me-2"></i>Quick Generate</div>
+            <div class="quick-actions p-3">
+              <div class="mb-3">
+                <label class="form-label small">Select Experiment</label>
+                <select class="form-select custom-select" id="quickExpSelect">
+                  <option value="">Choose experiment…</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label small">Section</label>
+                <select class="form-select custom-select" id="quickSectionSelect">
+                  <option value="full">Full Lab Manual</option>
+                  <option value="aim">Aim & Theory</option>
+                  <option value="procedure">Apparatus & Procedure</option>
+                  <option value="observation">Observation Tables</option>
+                  <option value="viva">Viva Questions</option>
+                  <option value="mistakes">Common Mistakes</option>
+                  <option value="simplified">Simplified Explanation</option>
+                  <option value="exam">Exam Mode</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label small">Additional Context (optional)</label>
+                <input type="text" class="form-control custom-input" id="quickContext"
+                       placeholder="e.g. for semester exam..." />
+              </div>
+              <button class="btn btn-generate w-100" onclick="quickGenerate()">
+                <i class="fa-solid fa-wand-magic-sparkles me-2"></i>Generate
+              </button>
+            </div>
+          </div>
+
+          <!-- Sample Prompts -->
+          <div class="panel-card mb-4">
+            <div class="panel-header"><i class="fa-solid fa-message me-2"></i>Sample Prompts</div>
+            <div class="sample-prompts p-3">
+              <div class="sample-prompt" onclick="injectPrompt(this)">
+                Explain Newton's Rings with derivation of the formula for wavelength
+              </div>
+              <div class="sample-prompt" onclick="injectPrompt(this)">
+                Generate 10 viva questions for diffraction grating experiment
+              </div>
+              <div class="sample-prompt" onclick="injectPrompt(this)">
+                What are common mistakes in Young's Double Slit experiment?
+              </div>
+              <div class="sample-prompt" onclick="injectPrompt(this)">
+                Explain Photoelectric Effect in simple terms for a beginner
+              </div>
+              <div class="sample-prompt" onclick="injectPrompt(this)">
+                Write the procedure for Hall Effect experiment step by step
+              </div>
+              <div class="sample-prompt" onclick="injectPrompt(this)">
+                What precautions should I take in RC circuit experiment?
+              </div>
+            </div>
+          </div>
+
+          <!-- Model Info -->
+          <div class="panel-card">
+            <div class="panel-header"><i class="fa-solid fa-microchip me-2"></i>Model Info</div>
+            <div class="model-info p-3">
+              <div class="model-row"><span class="model-key">Model</span><span class="model-val" id="modelId">ibm/granite-3-3-8b-instruct</span></div>
+              <div class="model-row"><span class="model-key">Provider</span><span class="model-val">IBM watsonx.ai</span></div>
+              <div class="model-row"><span class="model-key">Platform</span><span class="model-val">IBM Cloud</span></div>
+              <div class="model-row"><span class="model-key">Project</span><span class="model-val">AICTE AI Lab</span></div>
+              <div class="model-row"><span class="model-key">Status</span><span class="model-val"><span class="status-dot" id="statusDot"></span><span id="statusText">Checking…</span></span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ──────────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="container text-center">
+    <div class="footer-logo mb-3">
+      <i class="fa-solid fa-atom me-2"></i>PhysicsLab AI
+    </div>
+    <p class="footer-desc">IBM AICTE Problem Statement: AI Lab Manual &amp; Experiment Generator<br>
+    Powered by <strong>IBM watsonx.ai</strong> with <strong>IBM Granite Models</strong> · Deployed on <strong>IBM Cloud</strong></p>
+    <div class="footer-links mt-3">
+      <a href="https://www.ibm.com/watsonx" target="_blank">IBM watsonx.ai</a>
+      <a href="https://cloud.ibm.com" target="_blank">IBM Cloud</a>
+      <a href="https://github.com" target="_blank">GitHub</a>
+    </div>
+    <p class="footer-copy mt-3">© 2024 PhysicsLab AI · Made with ❤️ for IBM AICTE Internship</p>
+    <p class="footer-copy" style="margin-top:4px;opacity:0.75;">Developed by <strong>Harshal Tushar Bhange</strong></p>
+  </div>
+</footer>
+
+<!-- ── Loading Overlay ─────────────────────────────────────────── -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-box">
+    <div class="loading-spinner"></div>
+    <p class="loading-text" id="loadingText">Generating with IBM Granite…</p>
+    <p class="loading-sub">This may take 10–30 seconds</p>
+  </div>
+</div>
+
+<!-- ── Toast ───────────────────────────────────────────────────── -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="appToast" class="toast align-items-center" role="alert">
+    <div class="d-flex">
+      <div class="toast-body" id="toastBody">Action completed.</div>
+      <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/highlight.min.js"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

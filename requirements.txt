@@ -1,0 +1,31 @@
+# PhysicsLab AI — Python Dependencies
+# IBM AICTE Project: AI Lab Manual & Experiment Generator
+# Install with: pip install -r requirements.txt
+
+# ── Flask Web Framework ──────────────────────────────────────────
+Flask>=3.0.2
+flask-cors>=4.0.0
+
+# ── IBM watsonx.ai SDK ───────────────────────────────────────────
+# 1.5.13+ are the first releases without a Python <3.14 upper bound
+ibm-watsonx-ai==1.5.14
+
+# ── Environment Variables ────────────────────────────────────────
+python-dotenv>=1.0.1
+
+# ── HTTP Client (used by IBM SDK) ────────────────────────────────
+requests>=2.31.0
+
+# ── Production WSGI Server ───────────────────────────────────────
+gunicorn>=21.2.0
+
+# ── Optional: PDF Generation (uncomment to enable full PDF export)
+# weasyprint==60.2
+# reportlab==4.1.0
+
+# ── Optional: RAG / Vector Store (for future RAG integration) ────
+# langchain==0.2.0
+# langchain-ibm==0.1.7
+# chromadb==0.5.0
+# sentence-transformers==2.7.0
+# pypdf==4.2.0

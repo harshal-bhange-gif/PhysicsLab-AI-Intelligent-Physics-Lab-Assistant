@@ -1,0 +1,17 @@
+# PhysicsLab AI — IBM Cloud App Configuration
+# Used for IBM Cloud Foundry deployment
+
+applications:
+  - name: physicslab-ai
+    memory: 512M
+    instances: 1
+    buildpack: python_buildpack
+    command: gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120
+    env:
+      FLASK_ENV: production
+      FLASK_DEBUG: "false"
+      GRANITE_MODEL: ibm/granite-3-3-8b-instruct
+      IBM_REGION_URL: https://us-south.ml.cloud.ibm.com
+    # NOTE: Set IBM_API_KEY and IBM_PROJECT_ID via IBM Cloud CLI or environment:
+    #   ibmcloud cf set-env physicslab-ai IBM_API_KEY <your-key>
+    #   ibmcloud cf set-env physicslab-ai IBM_PROJECT_ID <your-project-id>
