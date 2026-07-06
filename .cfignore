@@ -1,0 +1,15 @@
+# PhysicsLab AI — IBM Cloud .cfignore
+# Files and folders to exclude from IBM Cloud Foundry deployment
+
+.env
+.git
+.gitignore
+__pycache__
+*.pyc
+*.pyo
+.DS_Store
+node_modules
+.venv
+venv
+uploads/*
+!uploads/.gitkeep
